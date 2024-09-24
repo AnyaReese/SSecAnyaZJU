@@ -3,7 +3,7 @@
 #include <unistd.h>
 #include <string.h>
 
-#define LENGTH 128
+#define LENGTH 64
 
 static char gstr[] = "/bin/sh";
 void target_code(unsigned long arg)
