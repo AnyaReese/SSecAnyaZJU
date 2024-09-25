@@ -9,7 +9,7 @@ void target_code(unsigned long arg)
 {
     if (arg == 0x7373656332303234) /* ssec2024 */
     {
-        printf("[BINGO]\n");
+        printf("[HACKED]\n");
         execve("/bin/sh", NULL, NULL);
     }
 }
