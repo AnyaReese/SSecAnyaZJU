@@ -24,12 +24,9 @@ def ShowUser(index, password):
     p.sendlineafter(b"> ", b"3")
     p.sendlineafter(b"index > ", str(index).encode())
     p.sendlineafter(b"password > ", password)
-    p.recvuntil(b"user name: ")
-    name = p.recv(0x20)
-    p.recvuntil(b"user motto: ")
-    motto = p.recv(0x20)
-    p.recvuntil(b"user intro: ")
-    intro = p.recv(0x40)
+    name = p.recvuntil(b"user name: ", drop=True)
+    motto = p.recvuntil(b"user motto: ", drop=True)
+    intro = p.recvuntil(b"[ 1 ]", drop=True)
     return name, motto, intro
 
 def EditUser(index, password, name, intro, motto):
